@@ -64,7 +64,7 @@ static int gDialPort;
 char spSleepPassword[BUFSIZE];
 
 static char *spAppYouTube = "chromium";
-static char *spAppYouTubeMatch = "chromium.*google-chrome-dial";
+static char *spAppYouTubeMatch = "chromium.*chrmyt";
 static char *spAppYouTubeExecutable = "/usr/bin/chromium";
 static char *spYouTubePS3UserAgent = "--user-agent="
     "Mozilla/5.0 (Linux; Android 12) Cobalt/22.2.3-gold (PS4)";
@@ -207,7 +207,7 @@ static DIALStatus youtube_start(DIALServer *ds, const char *appname,
     } else {
       snprintf( url, sizeof(url), "https://www.youtube.com/tv");
     }
-    snprintf( data, sizeof(data), "--user-data-dir=%s/.config/google-chrome-dial", getenv("HOME") );
+    snprintf( data, sizeof(data), "--user-data-dir=%s/.chrmyt", getenv("HOME") );
 
     const char * const youtube_args[] = { spAppYouTubeExecutable,
       spYouTubePS3UserAgent,
