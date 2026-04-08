@@ -63,13 +63,11 @@ static int gDialPort;
 
 char spSleepPassword[BUFSIZE];
 
-static char *spAppYouTube = "chrome";
-static char *spAppYouTubeMatch = "chrome.*google-chrome-dial";
-static char *spAppYouTubeExecutable = "/opt/google/chrome/google-chrome";
+static char *spAppYouTube = "chromium";
+static char *spAppYouTubeMatch = "chromium.*google-chrome-dial";
+static char *spAppYouTubeExecutable = "/usr/bin/chromium";
 static char *spYouTubePS3UserAgent = "--user-agent="
-    "Mozilla/5.0 (PS3; Leanback Shell) AppleWebKit/535.22 (KHTML, like Gecko) "
-    "Chrome/19.0.1048.0 LeanbackShell/01.00.01.73 QA Safari/535.22 Sony PS3/ "
-    "(PS3, , no, CH)";
+    "Mozilla/5.0 (Linux; Android 12) Cobalt/22.2.3-gold (PS4)";
 
 int doesMatch( char* pzExp, char* pzStr)
 {
@@ -213,7 +211,7 @@ static DIALStatus youtube_start(DIALServer *ds, const char *appname,
 
     const char * const youtube_args[] = { spAppYouTubeExecutable,
       spYouTubePS3UserAgent,
-      data, "--app", url, NULL
+      data, "--kiosk", url, NULL
     };
     runApplication( youtube_args, run_id );
 

@@ -11,7 +11,7 @@ debug: dialclient
 
 # You may not need all these libraries.  This example uses a build of curl that needs crypto, ssl, cares, and zlib
 dialclient: $(OBJS) ${includes}
-	$(CC) -Wall -Werror -g $(OBJS) $(INCLUDES) $(LDFLAGS) -ldl -lpthread -lcurl -lz -lcrypto -lssl -o dialclient
+	$(CC) -Wall -Werror -Wno-unused-result -g $(OBJS) $(INCLUDES) $(LDFLAGS) -ldl -lpthread -lcurl -lz -lcrypto -lssl -o dialclient
 
 clean:
 	rm -f *.o dialclient
