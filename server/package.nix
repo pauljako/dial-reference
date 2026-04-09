@@ -17,6 +17,6 @@ stdenv.mkDerivation {
 
   patchPhase = ''
     substituteInPlace main.c \
-    --replace-fail '/usr/bin/chromium' '${pkgs.chromium}/bin/chromium'
+    --replace-fail '/usr/bin/curl' '${pkgs.curl}/bin/curl'
   '';
 }

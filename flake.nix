@@ -3,11 +3,20 @@
 
   inputs.nixpkgs.url = "nixpkgs/nixos-25.11";
 
-  outputs = {
-    self,
-    nixpkgs,
-  }: {
-    packages."x86_64-linux".server = (import nixpkgs {system = "x86_64-linux";}).callPackage ./server/package.nix {};
-    packages."x86_64-linux".client = (import nixpkgs {system = "x86_64-linux";}).callPackage ./client/package.nix {};
-  };
+  outputs =
+    {
+      self,
+      nixpkgs,
+    }:
+    {
+      packages."x86_64-linux".server =
+        (import nixpkgs { system = "x86_64-linux"; }).callPackage ./server/package.nix
+          { };
+      packages."x86_64-linux".client =
+        (import nixpkgs { system = "x86_64-linux"; }).callPackage ./client/package.nix
+          { };
+      packages."x86_64-linux".bridge =
+        (import nixpkgs { system = "x86_64-linux"; }).callPackage ./bridge.nix
+          { };
+    };
 }
